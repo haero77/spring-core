@@ -1,8 +1,14 @@
 package hello.core.member;
 
+import hello.core.repository.MemberRepository;
+
 public class MemberServiceImpl implements MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemberRepository memberRepository) { // Dependency Injection(의존 관계 주입)
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public void join(Member member) {
